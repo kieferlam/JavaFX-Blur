@@ -13,4 +13,4 @@ target
 *.lib
 *.iobj
 *.ipdb
-.ipch
+*.ipch
