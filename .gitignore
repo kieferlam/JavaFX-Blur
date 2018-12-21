@@ -2,3 +2,13 @@
 .idea
 *.iml
 target
+*.suo
+*.db
+*.sln
+*.vcxproj*
+*.log
+*.obj
+*.exp
+*.lib
+*.iobj
+*.ipbd
