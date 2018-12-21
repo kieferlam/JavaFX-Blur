@@ -6,6 +6,7 @@ target
 *.db
 *.sln
 *.vcxproj*
+*.tlog
 *.log
 *.obj
 *.exp
