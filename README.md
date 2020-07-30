@@ -1,8 +1,8 @@
 # JavaFX Blur
 This library provides methods to apply a blur effect to a JavaFX stage using JNI to call the native window manager functions.
 
-<img src="/res/example.gif?raw=true" width="300px">
-<img src="/res/example2.gif?raw=true" width="300px">
+<img src="/res/example.gif?raw=true" width="600px">
+<img src="/res/example2.gif?raw=true" width="600px">
 
 ## Install
 To install, simply add the jar file as a dependency on your favourite IDE (add jar to classpath) and add the library files (.dll) to the library path.
