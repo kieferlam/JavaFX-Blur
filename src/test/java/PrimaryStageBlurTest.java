@@ -116,6 +116,6 @@ public class PrimaryStageBlurTest extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        Blur.applyBlur(primaryStage);
+        Blur.applyBlur(primaryStage, Blur.ACRYLIC);
     }
 }
