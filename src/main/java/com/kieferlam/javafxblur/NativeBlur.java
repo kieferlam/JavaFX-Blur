@@ -4,6 +4,6 @@ public class NativeBlur {
 
     protected NativeBlur(){}
 
-    protected native void _extApplyBlur(String target);
+    protected native void _extApplyBlur(String target, int accentState);
 
 }

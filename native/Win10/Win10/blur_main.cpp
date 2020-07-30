@@ -4,8 +4,9 @@
 #include "com_kieferlam_javafxblur_NativeBlur.h"
 
 std::string target = "";
+int targetAccentState = 0;
 
-void SetWindowBlur(HWND hWnd)
+void SetWindowBlur(HWND hWnd, int accentState)
 {
 	const HINSTANCE hModule = LoadLibrary(TEXT("user32.dll"));
 	if (hModule)
@@ -27,7 +28,7 @@ void SetWindowBlur(HWND hWnd)
 		const pSetWindowCompositionAttribute SetWindowCompositionAttribute = (pSetWindowCompositionAttribute)GetProcAddress(hModule, "SetWindowCompositionAttribute");
 		if (SetWindowCompositionAttribute)
 		{
-			ACCENTPOLICY policy = { 3, 0, 0xFF66FFFF, 0 }; // ACCENT_ENABLE_BLURBEHIND=3...
+			ACCENTPOLICY policy = { accentState, 0, 0x00FFFFFF, 0 }; // ACCENT_ENABLE_BLURBEHIND=3 / Colour in ARGB
 			WINCOMPATTRDATA data = { 19, &policy, sizeof(ACCENTPOLICY) }; // WCA_ACCENT_POLICY=19
 			SetWindowCompositionAttribute(hWnd, &data);
 
@@ -37,7 +38,7 @@ void SetWindowBlur(HWND hWnd)
 	}
 }
 void enableBlur(HWND hWnd) {
-	SetWindowBlur(hWnd);
+	SetWindowBlur(hWnd, targetAccentState);
 }
 
 BOOL CALLBACK EnumWindowsProc(HWND hWnd, LPARAM lParam)
@@ -66,9 +67,10 @@ BOOL CALLBACK EnumWindowsProc(HWND hWnd, LPARAM lParam)
 
 
 JNIEXPORT void JNICALL Java_com_kieferlam_javafxblur_NativeBlur__1extApplyBlur
-(JNIEnv *env, jobject, jstring title) {
+(JNIEnv *env, jobject, jstring title, jint accentState) {
 
 	const jchar *nativeString = env->GetStringChars(title, 0);
+	targetAccentState = (int)accentState;
 
 	char chars[256];
 

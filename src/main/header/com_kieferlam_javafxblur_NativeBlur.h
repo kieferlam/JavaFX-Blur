@@ -10,10 +10,10 @@ extern "C" {
 /*
  * Class:     com_kieferlam_javafxblur_NativeBlur
  * Method:    _extApplyBlur
- * Signature: (Ljava/lang/String;)V
+ * Signature: (Ljava/lang/String;I)V
  */
 JNIEXPORT void JNICALL Java_com_kieferlam_javafxblur_NativeBlur__1extApplyBlur
-  (JNIEnv *, jobject, jstring);
+  (JNIEnv *, jobject, jstring, jint);
 
 #ifdef __cplusplus
 }
