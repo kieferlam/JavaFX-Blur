@@ -33,9 +33,18 @@ public void start(Stage primaryStage) {
     primaryStage.show();
 
     // Blur effect must be called after the stage is visible
-    Blur.applyBlur(primaryStage);
+    Blur.applyBlur(primaryStage, Blur.ACRYLIC);
 }
 ```
 
+The second argument of `applyBlur(stage, blurType)` decides which method of blur should be used. The following blur types are available:
+
+- TRANSPARENT
+    - No blur, the window background is just transparent.
+- BLUR_BEHIND
+    - Slight blur behind window (see example image)
+- ACRYLIC
+    - Windows acrylic blur. Stronger blur than `BLUR_BEHIND`.
+ 
 ## Compatibility
 So far, only the native functions for Windows 10 have been provided.
